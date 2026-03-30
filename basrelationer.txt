@@ -1,0 +1,3 @@
+Mina basrelationer:
+
+courses(id(pk), courseCode, courseName, syllabus, progression)
