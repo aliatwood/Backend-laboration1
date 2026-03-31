@@ -14,6 +14,16 @@
     </nav>
 
     <h1>Samtliga valda kurser</h1>
+
+    <ul>
+        <% if (courses && courses.length > 0) { %>
+            <% courses.forEach(course => { %>
+                <li><%= course.courseName %> (<%= course.courseCode %>) - <%= course.progression %></li>
+            <% }) %>
+        <% } else { %>
+            <li>Inga kurser tillagda än.</li>
+        <% } %>
+    </ul>
     
 </body>
 </html>
