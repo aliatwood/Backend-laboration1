@@ -1,0 +1,25 @@
+{
+  "name": "backend-laboration1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliatwood/Backend-laboration1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aliatwood/Backend-laboration1/issues"
+  },
+  "homepage": "https://github.com/aliatwood/Backend-laboration1#readme",
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1",
+    "sqlite3": "^6.0.1"
+  }
+}
