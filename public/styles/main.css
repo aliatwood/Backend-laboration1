@@ -115,3 +115,51 @@ ul li a:hover{
 .info p {
     margin-top: 0;
 }
+
+nav a.active {
+    border-bottom: 2px solid white;
+}
+
+@media (max-width: 1023px){
+    ul{
+        max-width: 90%;
+    }
+
+    .info{
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    nav{
+        flex-direction: column;
+        gap: 1em;
+        font-size: 1.2em;
+    }
+
+    ul{
+        max-width: 95%;
+    }
+
+    ul li{
+        font-size: 0.9em;
+    }
+
+    ul li a{
+        display: block;
+        margin: 0.3em 0;
+    }
+
+    .form form{
+        width: 90vw;
+    }
+
+    .form input, .form button{
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .info{
+        width: 95%;
+    }
+}

@@ -22,12 +22,21 @@
             </p>
 
             <h2>Databas</h2>
-            <p>Webbplatsen använder sig av SQL som databasserver. Datan sparas i en tabell som heter courses som i sin tur innehåller kurskod, kursnamn, kursplan och progression</p>
+            <p>Webbplatsen använder sig av SQLite som databasserver. Datan sparas i en tabell som heter courses som i sin tur innehåller kurskod, kursnamn, kursplan och progression</p>
 
             <h2>Slutsatser</h2>
             <p>Denna uppgift har hjälpt mig förstå hur man faktiskt kopplar ihop en databas tillsammans med en Node.js med hjälp av Express och SQLite. Utöver det har jag fått mer förståelse för hur man använder olika SQL-kommandon som SELECT och DELETE för att hantera data i en databas.</p>
         </div>
     </main>
+
+    <script>
+        const links = document.querySelectorAll("nav a");
+        links.forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add("active");
+            }
+        });
+    </script>
 
 </body>
 </html>
