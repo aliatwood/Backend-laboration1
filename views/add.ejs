@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kurstilläggning</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" href="/pictures/favicon.ico" type="image/ico">
 </head>
 <body>
     <nav>
@@ -14,8 +16,6 @@
 
     <h1>Lägg till kurser</h1>
 
-    <form action=""></form>
-
     <main>
         <div class="form">
             <form action="/add" method="POST">
@@ -25,6 +25,10 @@
                 <input type="text" id="kursprogression" name="kursprogression" placeholder="Kursprogression">
 
                 <button class="form-btn">Skicka</button>
+
+                <% if (error) { %>
+                    <p class="error"><%= error %></p>
+                <% } %>
             </form>
         </div>
     </main>

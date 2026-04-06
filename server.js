@@ -27,24 +27,7 @@ db.run(`create table if not exists courses(
 });
 
 app.use(express.urlencoded({extended:true}));
-
-app.post("/add", (req, res) => {
-    const { kurskod, kursnamn, kursplan, kursprogression } = req.body;
-
-    db.run(`insert into courses (courseCode, courseName, syllabus, progression)
-        values (?, ?, ?, ?)`,
-    [kurskod, kursnamn, kursplan, kursprogression],
-    (err) => {
-        if (err) {
-            console.log(err.message);
-        } else {
-            res.redirect("/");
-        }
-    });
-});
-
 app.use(express.static("public"));
-
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
@@ -55,7 +38,31 @@ app.get("/", (req, res) => {
             res.render("index", {courses: rows});
         }
     });
-});;
+});
+
+app.get("/add", (req, res) => {
+    res.render("add", { error: null });
+});
+
+app.post("/add", (req, res) => {
+    const {kurskod, kursnamn, kursplan, kursprogression} = req.body;
+
+    if (!kurskod || !kursnamn || !kursplan || !kursprogression) {
+        res.render("add", {error: "Vänligen fyll i alla fält!"});
+        return;
+    }
+
+    db.run(`insert into courses (courseCode, courseName, syllabus, progression)
+        values (?, ?, ?, ?)`,
+        [kurskod, kursnamn, kursplan, kursprogression],
+        (err) => {
+            if (err) {
+                console.log(err.message)
+            } else {
+                res.redirect("/");
+            }
+        });
+});
 
 app.get("/delete/:id", (req, res) =>{
     const id = req.params.id;
@@ -68,10 +75,6 @@ app.get("/delete/:id", (req, res) =>{
         }
     });
 });
-
-app.get("/add", (req, res) => {
-    res.render("add");
-})
 
 app.get("/about", (req, res) => {
     res.render("about");
