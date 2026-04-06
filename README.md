@@ -6,4 +6,4 @@ Jag har använt mig av Express och Node.js för att skapa en server kopplad till
 
 ## Publicerad webbplats
 Webbplatsen publiceras automatiskt via **GitHub Pages**.
-[Länk till den publicerade webbplatsen](https://aliatwood.github.io/Typescript-laboration1/)
+[Länk till den publicerade webbplatsen](https://backend-laboration1-1.onrender.com)
