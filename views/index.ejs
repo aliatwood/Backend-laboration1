@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startsida</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" href="/pictures/favicon.ico" type="image/ico">
+</head>
+<body>
+    <nav>
+        <a href="/">Startsida</a> |
+        <a href="/add">Lägg till kurs</a> |
+        <a href="/about">Om sidan</a>
+    </nav>
+
+    <h1>Samtliga valda kurser</h1>
+
+    <main>
+        <ul>
+            <% if (courses && courses.length > 0) { %>
+                <% courses.forEach(course => { %>
+                    <li>
+                        <%= course.courseCode %> - <%= course.courseName %> - <a href="<%= course.syllabus %>">Kursplan</a> - <%= course.progression %> - <a href="/delete/<%= course.id %>">Radera</a>
+                    </li>
+                <% }) %>
+            <% } else { %>
+                <li> Inga kurser tillagda än.</li>
+            <% } %>
+        </ul>
+    </main>
+
+    <script>
+        const links = document.querySelectorAll("nav a");
+        links.forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add("active");
+            }
+        });
+    </script>
+
+    <footer>
+        © All rights reserved
+    </footer>
+    
+</body>
+</html>

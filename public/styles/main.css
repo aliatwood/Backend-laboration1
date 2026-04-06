@@ -1,0 +1,176 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background-color: #1a1a2e;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    font-size: 1.6em;
+    background-color: #16213e;
+    padding: 1em;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover{
+    opacity: 0.8;
+}
+
+h1{
+    text-align: center;
+    color: white;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+ul li{
+    background-color: #16213e;
+    color: white;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+}
+
+ul li a{
+    display: inline-block;
+    padding: 0.3em 0.8em;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 0.5em;
+}
+
+ul li a[href*="delete"]{
+    background-color: #e63946;
+    color: white;
+}
+
+ul li a:not([href*="delete"]){
+    background-color: #0f3460;
+    color: white;
+}
+
+ul li a:hover{
+    opacity: 0.8;
+}
+
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    width: 300px;
+}
+
+.form input{
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.form button{
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: rgb(106, 222, 106);
+}
+
+.form button:hover{
+    opacity: 0.8;
+}
+
+.error{
+    color: #e63946;
+    text-align: center;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    width: 22em;
+    color: white;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.info p{
+    margin-top: 0;
+}
+
+nav a.active{
+    border-bottom: 2px solid white;
+}
+
+footer{
+    text-align: center;
+    color: white;
+    padding: 1em;
+    margin-top: auto;
+    background-color: #16213e;
+}
+
+@media (max-width: 1023px){
+    ul{
+        max-width: 90%;
+    }
+
+    .info{
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    nav{
+        flex-direction: column;
+        gap: 1em;
+        font-size: 1.2em;
+    }
+
+    ul{
+        max-width: 95%;
+    }
+
+    ul li{
+        font-size: 0.9em;
+    }
+
+    ul li a{
+        display: block;
+        margin: 0.3em 0;
+    }
+
+    .form form{
+        width: 90vw;
+    }
+
+    .form input, .form button{
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .info{
+        width: 95%;
+    }
+}
