@@ -1,5 +1,8 @@
 body{
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     padding: 0;
     background-color: #1a1a2e;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
@@ -112,12 +115,20 @@ ul li a:hover{
     line-height: 1.5;
 }
 
-.info p {
+.info p{
     margin-top: 0;
 }
 
-nav a.active {
+nav a.active{
     border-bottom: 2px solid white;
+}
+
+footer{
+    text-align: center;
+    color: white;
+    padding: 1em;
+    margin-top: auto;
+    background-color: #16213e;
 }
 
 @media (max-width: 1023px){
