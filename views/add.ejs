@@ -6,7 +6,6 @@
     <title>Kurstilläggning</title>
 </head>
 <body>
-
     <nav>
         <a href="/">Startsida</a> |
         <a href="/add">Lägg till kurs</a> |
@@ -14,6 +13,21 @@
     </nav>
 
     <h1>Lägg till kurser</h1>
+
+    <form action=""></form>
+
+    <main>
+        <div class="form">
+            <form action="/add" method="POST">
+                <input type="text" id="kurskod" name="kurskod" placeholder="Kurskod">
+                <input type="text" id="kursnamn" name="kursnamn" placeholder="Kursnamn">
+                <input type="text" id="kursplan" name="kursplan" placeholder="Kursplan">
+                <input type="text" id="kursprogression" name="kursprogression" placeholder="Kursprogression">
+
+                <button class="form-btn">Skicka</button>
+            </form>
+        </div>
+    </main>
     
 </body>
 </html>
