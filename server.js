@@ -2,42 +2,24 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
-const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database("./myDb.db", (err) => {
-    if (err) {
-        console.log(err.message)
-    }
-    else {
-        console.log("Databasen är skapad");
-    }
-})
+const Database = require("better-sqlite3");
+const db = new Database("./myDb.db");
 
-db.run(`create table if not exists courses(
+db.exec(`create table if not exists courses(
     id integer primary key autoincrement,
     courseCode varchar(15) not null,
     courseName varchar(30) not null,
     syllabus varchar(200) not null,
     progression varchar(10) not null
-)`, (err) => {
-    if (err) {
-        console.log(err.message);
-    } else {
-        console.log("Tabellen är skapad");
-    }
-});
+)`);
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-    db.all(`select * from courses`, [], (err, rows) => {
-        if (err) {
-            console.log(err.message)
-        } else{
-            res.render("index", {courses: rows});
-        }
-    });
+    const rows = db.prepare(`select * from courses`).all();
+    res.render("index", {courses: rows});
 });
 
 app.get("/add", (req, res) => {
@@ -52,28 +34,15 @@ app.post("/add", (req, res) => {
         return;
     }
 
-    db.run(`insert into courses (courseCode, courseName, syllabus, progression)
-        values (?, ?, ?, ?)`,
-        [kurskod, kursnamn, kursplan, kursprogression],
-        (err) => {
-            if (err) {
-                console.log(err.message)
-            } else {
-                res.redirect("/");
-            }
-        });
-});
+    db.prepare(`insert into courses (courseCode, courseName, syllabus, progression)
+        values (?, ?, ?, ?)`).run(kurskod, kursnamn, kursplan, kursprogression);
+        res.redirect("/");
+    });
 
 app.get("/delete/:id", (req, res) =>{
     const id = req.params.id;
-
-    db.run(`delete from courses where id = ?`, [id], (err) => {
-        if (err) {
-            console.log(err.message);
-        } else {
-            res.redirect("/");
-        }
-    });
+    db.prepare(`delete from courses where id = ?`).run(id);
+    res.redirect("/");
 });
 
 app.get("/about", (req, res) => {
