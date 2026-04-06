@@ -12,6 +12,20 @@ const db = new sqlite3.Database("./myDb.db", (err) => {
     }
 })
 
+db.run(`create table if not exists courses(
+    id integer primary key autoincrement,
+    courseCode varchar(15) not null,
+    courseName varchar(30) not null,
+    syllabus varchar(200) not null,
+    progression varchar(10) not null
+)`, (err) => {
+    if (err) {
+        console.log(err.message);
+    } else {
+        console.log("Tabellen är skapad");
+    }
+});
+
 app.use(express.urlencoded({extended:true}));
 
 app.use(express.static("public"));
