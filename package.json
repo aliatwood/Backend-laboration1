@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/aliatwood/Backend-laboration1#readme",
   "dependencies": {
+    "better-sqlite3": "^12.8.0",
     "ejs": "^5.0.1",
     "express": "^5.2.1",
-    "nodemon": "^3.1.14",
-    "sqlite3": "^6.0.1"
+    "nodemon": "^3.1.14"
   }
 }
