@@ -57,6 +57,18 @@ app.get("/", (req, res) => {
     });
 });;
 
+app.get("/delete/:id", (req, res) =>{
+    const id = req.params.id;
+
+    db.run(`delete from courses where id = ?`, [id], (err) => {
+        if (err) {
+            console.log(err.message);
+        } else {
+            res.redirect("/");
+        }
+    });
+});
+
 app.get("/add", (req, res) => {
     res.render("add");
 })

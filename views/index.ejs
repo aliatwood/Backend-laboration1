@@ -6,7 +6,6 @@
     <title>Startsida</title>
 </head>
 <body>
-
     <nav>
         <a href="/">Startsida</a> |
         <a href="/add">Lägg till kurs</a> |
@@ -15,15 +14,19 @@
 
     <h1>Samtliga valda kurser</h1>
 
-    <ul>
-        <% if (courses && courses.length > 0) { %>
-            <% courses.forEach(course => { %>
-                <li><%= course.courseName %> (<%= course.courseCode %>) - <%= course.progression %></li>
-            <% }) %>
-        <% } else { %>
-            <li>Inga kurser tillagda än.</li>
-        <% } %>
-    </ul>
+    <main>
+        <ul>
+            <% if (courses && courses.length > 0) { %>
+                <% courses.forEach(course => { %>
+                    <li>
+                        <%= course.courseCode %> - <%= course.courseName %> - <a href="<%= course.syllabus %>">Kursplan</a> - <%= course.progression %> - <a href="/delete/<%= course.id %>">Radera</a>
+                    </li>
+                <% }) %>
+            <% } else { %>
+                <li> Inga kurser tillagda än.</li>
+            <% } %>
+        </ul>
+    </main>
     
 </body>
 </html>
